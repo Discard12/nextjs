@@ -19,7 +19,7 @@ export async function getStaticPaths() {
         const mt = await col.find({},{_id: 1}).toArray();
    
     return {
-        fallback: false,
+        fallback: 'blocking',
         paths: mt.map(m => ({
             params: {meetupId: m._id.toString()}
         }))
